@@ -86,6 +86,7 @@ async function proposeTransaction() {
     value: '0', // 0 wei
     data: data,
     operation: calltype,
+    nonce: (await safe.getNonce()) + 1,
   };
 
   const safeTransaction = await safe.createTransaction({safeTransactionData});
