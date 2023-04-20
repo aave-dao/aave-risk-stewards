@@ -7,24 +7,19 @@ import {EngineFlags} from 'aave-helpers/v3-config-engine/EngineFlags.sol';
 import {CapsPlusRiskStewardMainnet} from '../scripts/CapsPlusRiskStewardMainnet.s.sol';
 
 contract MainnetExample is CapsPlusRiskStewardMainnet {
-  /**
-   * @notice This script doesn't broadcast as it's intended to be used via safe
-   */
-  function run(bool broadcastToSafe) external {
-    // not needed but speeds up tests tramendously
-    vm.createSelectFork(vm.rpcUrl('mainnet'), 17087049);
-    // only needed as long as things are mocked
-    vm.startPrank(user);
+  string constant NAME = 'mainnet_example';
+
+  function name() internal pure override returns (string memory) {
+    return NAME;
+  }
+
+  function capsUpdates() internal pure override returns (IAaveV3ConfigEngine.CapsUpdate[] memory) {
     IAaveV3ConfigEngine.CapsUpdate[] memory capUpdates = new IAaveV3ConfigEngine.CapsUpdate[](1);
     capUpdates[0] = IAaveV3ConfigEngine.CapsUpdate(
       AaveV3EthereumAssets.DAI_UNDERLYING,
-      380_000_000,
+      390_000_000,
       EngineFlags.KEEP_CURRENT
     );
-
-    bytes memory callDatas = _simulateAndGenerateDiff(capUpdates);
-    if (broadcastToSafe) {
-      _sendToSafe(address(STEWARD), callDatas);
-    }
+    return capUpdates;
   }
 }

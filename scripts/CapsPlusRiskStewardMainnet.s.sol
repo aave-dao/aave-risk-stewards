@@ -10,13 +10,12 @@ import {IAaveV3ConfigEngine} from 'aave-helpers/v3-config-engine/IAaveV3ConfigEn
 import {EngineFlags} from 'aave-helpers/v3-config-engine/EngineFlags.sol';
 import {CapsPlusRiskStewardBase} from './CapsPlusRiskStewardBase.s.sol';
 
-contract CapsPlusRiskStewardMainnet is CapsPlusRiskStewardBase {
+abstract contract CapsPlusRiskStewardMainnet is CapsPlusRiskStewardBase {
   CapsPlusRiskSteward immutable STEWARD;
 
-  // WORKAROUND START: WILL BE REMOVED ONCE DEPLOYED / APPROVED BY GOVERNANCE
-  address public constant user = address(42);
-
+  // WORKAROUND START
   constructor() {
+    vm.createSelectFork(vm.rpcUrl('mainnet'), 17087049);
     STEWARD = new CapsPlusRiskSteward(
       AaveV3Ethereum.AAVE_PROTOCOL_DATA_PROVIDER,
       IAaveV3ConfigEngine(AaveV3Ethereum.LISTING_ENGINE),

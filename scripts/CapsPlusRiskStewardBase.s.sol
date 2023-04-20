@@ -13,12 +13,36 @@ import {ProtocolV3TestBase, ReserveConfig} from 'aave-helpers/ProtocolV3TestBase
 abstract contract CapsPlusRiskStewardBase is ProtocolV3TestBase {
   error FailedUpdate();
 
+  // WORKAROUND START: WILL BE REMOVED ONCE DEPLOYED / APPROVED BY GOVERNANCE
+  address public constant user = address(42);
+
+  // WORKAROUND END
+
+  function capsUpdates() internal pure virtual returns (IAaveV3ConfigEngine.CapsUpdate[] memory);
+
   function getSteward() internal view virtual returns (address);
+
+  function name() internal pure virtual returns (string memory);
+
+  /**
+   * @notice This script doesn't broadcast as it's intended to be used via safe
+   */
+  function run(bool broadcastToSafe) external {
+    // only needed as long as things are mocked
+    vm.startPrank(user);
+    IAaveV3ConfigEngine.CapsUpdate[] memory updates = capsUpdates();
+    bytes memory callDatas = _simulateAndGenerateDiff(updates);
+    if (broadcastToSafe) {
+      _sendToSafe(getSteward(), callDatas);
+    }
+  }
 
   function _simulateAndGenerateDiff(
     IAaveV3ConfigEngine.CapsUpdate[] memory capUpdates
   ) internal returns (bytes memory) {
-    createConfigurationSnapshot('pre', AaveV3Ethereum.POOL);
+    string memory pre = string(abi.encodePacked('pre_', name()));
+    string memory post = string(abi.encodePacked('post_', name()));
+    createConfigurationSnapshot(pre, AaveV3Ethereum.POOL);
     bytes memory callDatas = abi.encodeWithSelector(
       CapsPlusRiskSteward.updateCaps.selector,
       capUpdates
@@ -27,8 +51,8 @@ abstract contract CapsPlusRiskStewardBase is ProtocolV3TestBase {
     bytes memory resultData;
     (success, resultData) = address(getSteward()).call(callDatas);
     _verifyCallResult(success, resultData);
-    createConfigurationSnapshot('post', AaveV3Ethereum.POOL);
-    diffReports('pre', 'post');
+    createConfigurationSnapshot(post, AaveV3Ethereum.POOL);
+    diffReports(pre, post);
 
     return callDatas;
   }

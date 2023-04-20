@@ -15,5 +15,5 @@ git-diff :
 	@mkdir -p diffs
 	@printf '%s\n%s\n%s\n' "\`\`\`diff" "$$(git diff --no-index --diff-algorithm=patience --ignore-space-at-eol ${before} ${after})" "\`\`\`" > diffs/${out}.md
 
-mainnet-example:; forge script src/MainnetExample.s.sol:MainnetExample --rpc-url mainnet --sig "run(bool)" false
-mainnet-example-safe:; forge script src/MainnetExample.s.sol:MainnetExample --rpc-url mainnet --sig "run(bool)" true
+mainnet-example:; forge script src/MainnetExample.s.sol:MainnetExample --rpc-url mainnet --sig "run(bool)" false -vv
+mainnet-example-safe:; forge script src/MainnetExample.s.sol:MainnetExample --rpc-url mainnet --sig "run(bool)" true -vv

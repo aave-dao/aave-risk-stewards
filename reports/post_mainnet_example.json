@@ -199,7 +199,7 @@
       "stableBorrowRateEnabled": false,
       "stableDebtToken": "0x413AdaC9E2Ef8683ADf5DDAEce8f19613d60D1bb",
       "stableDebtTokenImpl": "0x15C5620dfFaC7c7366EED66C20Ad222DDbB1eD57",
-      "supplyCap": 338000000,
+      "supplyCap": 390000000,
       "symbol": "DAI",
       "underlying": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
       "usageAsCollateralEnabled": true,
