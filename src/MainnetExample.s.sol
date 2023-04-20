@@ -7,12 +7,16 @@ import {EngineFlags} from 'aave-helpers/v3-config-engine/EngineFlags.sol';
 import {CapsPlusRiskStewardMainnet} from '../scripts/CapsPlusRiskStewardMainnet.s.sol';
 
 contract MainnetExample is CapsPlusRiskStewardMainnet {
-  string constant NAME = 'mainnet_example';
-
+  /**
+   * @return string name identifier used for the diff
+   */
   function name() internal pure override returns (string memory) {
-    return NAME;
+    return 'mainnet_example';
   }
 
+  /**
+   * @return IAaveV3ConfigEngine.CapsUpdate[] capUpdates to be performed
+   */
   function capsUpdates() internal pure override returns (IAaveV3ConfigEngine.CapsUpdate[] memory) {
     IAaveV3ConfigEngine.CapsUpdate[] memory capUpdates = new IAaveV3ConfigEngine.CapsUpdate[](1);
     capUpdates[0] = IAaveV3ConfigEngine.CapsUpdate(
