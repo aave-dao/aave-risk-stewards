@@ -1,6 +1,17 @@
 # Aave Risk Steward
 
-TBA
+This repository contains some template/example code for executing cap updates on the RiskCapPlusSteward.
+There are 3 relevant contacts here:
+
+- [CapsPlusRiskStewardBase](./scripts/CapsPlusRiskStewardBase.s.sol) the abstract base contract handling the configuration snapshot creation and the forwarding to safe via ffi
+- abstract Network contracts with all the relevant addresses initialized
+  - [CapsPlusRiskStewardMainnet](./scripts//CapsPlusRiskStewardMainnet.s.sol)
+  - ... more to come
+- [MainnetExample](./src/MainnetExample.s.sol) the actual contract performing the update. The contract inherits the others and therefore handles testing and forwarding to safe automatically. The only thing that needs to be done is implementing:
+  - `name` function returning a unique name (is used for generating the config snapshot and diffs)
+  - `capsUpdates` function, analog to config engine
+
+The code can be executed by running: `forge script src/MainnetExample.s.sol:MainnetExample --rpc-url mainnet --sig "run(bool)" false -vv` where the bool inside the `run(bool)` signature determines if the calldata should be sent to safe.
 
 ## Development
 
