@@ -8,19 +8,17 @@ import {AaveV3Ethereum, AaveV3EthereumAssets} from 'aave-address-book/AaveV3Ethe
 import {CapsPlusRiskSteward} from 'aave-helpers/riskstewards/CapsPlusRiskSteward.sol';
 import {IAaveV3ConfigEngine} from 'aave-helpers/v3-config-engine/IAaveV3ConfigEngine.sol';
 import {EngineFlags} from 'aave-helpers/v3-config-engine/EngineFlags.sol';
-import {ProtocolV3TestBase, ReserveConfig} from 'aave-helpers/ProtocolV3TestBase.sol';
+import {ProtocolV3_0_1TestBase, ReserveConfig} from 'aave-helpers/ProtocolV3TestBase.sol';
 
-abstract contract CapsPlusRiskStewardBase is ProtocolV3TestBase {
+abstract contract CapsPlusRiskStewardBase is ProtocolV3_0_1TestBase {
   error FailedUpdate();
+  CapsPlusRiskSteward immutable STEWARD;
 
-  // WORKAROUND START: WILL BE REMOVED ONCE DEPLOYED / APPROVED BY GOVERNANCE
-  address public constant user = address(42);
-
-  // WORKAROUND END
+  constructor(address steward) {
+    STEWARD = CapsPlusRiskSteward(steward);
+  }
 
   function capsUpdates() internal pure virtual returns (IAaveV3ConfigEngine.CapsUpdate[] memory);
-
-  function getSteward() internal view virtual returns (address);
 
   function name() internal pure virtual returns (string memory);
 
@@ -29,11 +27,15 @@ abstract contract CapsPlusRiskStewardBase is ProtocolV3TestBase {
    */
   function run(bool broadcastToSafe) external {
     // only needed as long as things are mocked
-    vm.startPrank(user);
+    vm.startPrank(STEWARD.RISK_COUNCIL());
     IAaveV3ConfigEngine.CapsUpdate[] memory updates = capsUpdates();
     bytes memory callDatas = _simulateAndGenerateDiff(updates);
+    emit log_string('steward address:');
+    emit log_address(address(STEWARD));
+    emit log_string('calldata:');
+    emit log_bytes(callDatas);
     if (broadcastToSafe) {
-      _sendToSafe(getSteward(), callDatas);
+      _sendToSafe(callDatas);
     }
   }
 
@@ -49,7 +51,7 @@ abstract contract CapsPlusRiskStewardBase is ProtocolV3TestBase {
     );
     bool success;
     bytes memory resultData;
-    (success, resultData) = address(getSteward()).call(callDatas);
+    (success, resultData) = address(STEWARD).call(callDatas);
     _verifyCallResult(success, resultData);
     createConfigurationSnapshot(post, AaveV3Ethereum.POOL);
     diffReports(pre, post);
@@ -57,13 +59,13 @@ abstract contract CapsPlusRiskStewardBase is ProtocolV3TestBase {
     return callDatas;
   }
 
-  function _sendToSafe(address steward, bytes memory callDatas) internal {
+  function _sendToSafe(bytes memory callDatas) internal {
     string[] memory inputs = new string[](8);
     inputs[0] = 'npx';
     inputs[1] = 'ts-node';
     inputs[2] = 'scripts/safe-helper.ts';
-    inputs[3] = vm.toString(msg.sender);
-    inputs[4] = vm.toString(steward);
+    inputs[3] = vm.toString(STEWARD.RISK_COUNCIL());
+    inputs[4] = vm.toString(address(STEWARD));
     inputs[5] = vm.toString(callDatas);
     inputs[6] = vm.toString(block.chainid);
     inputs[7] = 'Call';
