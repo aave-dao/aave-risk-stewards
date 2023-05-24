@@ -10,13 +10,11 @@ dotenv.config();
 // original: https://github.com/safe-global/safe-core-sdk/tree/main/playground
 
 interface Config {
-  RPC_URL: string | undefined;
-  SIGNER_ADDRESS_PRIVATE_KEY: string | undefined;
-  MNEMONIC_INDEX: string;
+  SIGNER_ADDRESS_PRIVATE_KEY?: string;
+  MNEMONIC_INDEX?: string;
 }
 
 const config: Config = {
-  RPC_URL: process.env.RPC_URL,
   SIGNER_ADDRESS_PRIVATE_KEY: process.env.PRIVATE_KEY,
   MNEMONIC_INDEX: process.env.MNEMONIC_INDEX || '0',
 };
@@ -62,7 +60,9 @@ async function proposeTransaction() {
   // const signer = new ethers.Wallet(config.SIGNER_ADDRESS_PRIVATE_KEY, provider);
 
   // Ledger signer
-  const signer = new LedgerSigner(provider, 'default', getLedgerPath(config.MNEMONIC_INDEX));
+  const signer = config.MNEMONIC_INDEX
+    ? new LedgerSigner(provider, 'default', getLedgerPath(config.MNEMONIC_INDEX))
+    : new ethers.Wallet(config.SIGNER_ADDRESS_PRIVATE_KEY!, provider);
 
   // Create EthAdapter instance
   const ethAdapter = new EthersAdapter({
