@@ -30,6 +30,8 @@ abstract contract CapsPlusRiskStewardBase is ProtocolV3_0_1TestBase {
     vm.startPrank(STEWARD.RISK_COUNCIL());
     IAaveV3ConfigEngine.CapsUpdate[] memory updates = capsUpdates();
     bytes memory callDatas = _simulateAndGenerateDiff(updates);
+    emit log_string('safe address');
+    emit log_address(STEWARD.RISK_COUNCIL());
     emit log_string('steward address:');
     emit log_address(address(STEWARD));
     emit log_string('calldata:');
