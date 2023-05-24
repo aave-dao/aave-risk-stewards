@@ -21,12 +21,13 @@ const config: Config = {
   MNEMONIC_INDEX: process.env.MNEMONIC_INDEX || '0',
 };
 
-type ChainId = 1 | 10 | 137 | 42161 | 43114;
+type ChainId = 1 | 10 | 137 | 1088 | 42161 | 43114;
 
 const RPCS: Record<ChainId, string> = {
   1: process.env.RPC_MAINNET as string,
   10: process.env.RPC_OPTIMISM as string,
   137: process.env.RPC_POLYGON as string,
+  1088: process.env.RPC_METIS as string,
   42161: process.env.RPC_ARBITRUM as string,
   43114: process.env.RPC_AVALANCHE as string,
 };
@@ -36,6 +37,7 @@ const TX_SERVICE_URLS: Record<ChainId, string> = {
   1: 'https://safe-transaction-mainnet.safe.global/',
   10: 'https://safe-transaction-optimism.safe.global/',
   137: 'https://safe-transaction-polygon.safe.global/',
+  1088: 'https://andromeda-service.metissafe.tech/txs/',
   42161: 'https://safe-transaction-arbitrum.safe.global/',
   43114: 'https://safe-transaction-avalanche.safe.global/',
 };
