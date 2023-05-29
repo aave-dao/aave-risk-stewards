@@ -27,15 +27,17 @@ abstract contract CapsPlusRiskStewardBase is ProtocolV3_0_1TestBase {
    */
   function run(bool broadcastToSafe) external {
     // only needed as long as things are mocked
-    vm.startPrank(STEWARD.RISK_COUNCIL());
     IAaveV3ConfigEngine.CapsUpdate[] memory updates = capsUpdates();
+    vm.startPrank(STEWARD.RISK_COUNCIL());
     bytes memory callDatas = _simulateAndGenerateDiff(updates);
+    vm.stopPrank();
     emit log_string('safe address');
     emit log_address(STEWARD.RISK_COUNCIL());
     emit log_string('steward address:');
     emit log_address(address(STEWARD));
     emit log_string('calldata:');
     emit log_bytes(callDatas);
+
     if (broadcastToSafe) {
       _sendToSafe(callDatas);
     }
