@@ -30,3 +30,6 @@ safe-metis-example:; forge script src/MetisExample.s.sol:MetisExample --rpc-url 
 safe-optimism-example:; forge script src/OptimismExample.s.sol:OptimismExample --rpc-url optimism --sig "run(bool)" true -vv
 safe-arbitrum-example:; forge script src/ArbitrumExample.s.sol:ArbitrumExample --rpc-url arbitrum --sig "run(bool)" true -vv
 safe-avalanche-example:; forge script src/AvalancheExample.s.sol:AvalancheExample --rpc-url avalanche --sig "run(bool)" true -vv
+
+# repro
+minimal-metis-example:; forge script src/MinimalMetisExample.s.sol:MinimalMetisExample --rpc-url metis -vv
