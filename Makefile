@@ -17,3 +17,5 @@ git-diff :
 
 mainnet-example:; forge script src/MainnetExample.s.sol:MainnetExample --rpc-url mainnet --sig "run(bool)" false -vv
 mainnet-example-safe:; forge script src/MainnetExample.s.sol:MainnetExample --rpc-url mainnet --sig "run(bool)" true -vv
+polygon-example:; forge script src/PolygonExample.s.sol:PolygonExample --rpc-url polygon --sig "run(bool)" false -vv
+polygon-example-safe:; forge script src/PolygonExample.s.sol:PolygonExample --rpc-url polygon --sig "run(bool)" true -vv
