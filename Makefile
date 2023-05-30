@@ -30,3 +30,19 @@ safe-metis-example:; forge script src/MetisExample.s.sol:MetisExample --rpc-url 
 safe-optimism-example:; forge script src/OptimismExample.s.sol:OptimismExample --rpc-url optimism --sig "run(bool)" true -vv
 safe-arbitrum-example:; forge script src/ArbitrumExample.s.sol:ArbitrumExample --rpc-url arbitrum --sig "run(bool)" true -vv
 safe-avalanche-example:; forge script src/AvalancheExample.s.sol:AvalancheExample --rpc-url avalanche --sig "run(bool)" true -vv
+
+# Increase Supply Caps for LSTs on AAVE V3 Ethereum 20230530
+mainnet-supply-caps-increase-20230530:; forge script src/MainnetLSTsSupplyCapsIncrease_20230530.s.sol:MainnetLSTsSupplyCapsIncrease_20230530 --rpc-url mainnet --sig "run(bool)" false -vv
+safe-mainnet-supply-caps-increase-20230530:; forge script src/MainnetLSTsSupplyCapsIncrease_20230530.s.sol:MainnetLSTsSupplyCapsIncrease_20230530 --rpc-url mainnet --sig "run(bool)" true -vv
+
+# Increase Supply Caps for LSTs on AAVE V3 Arbitrum 20230530
+arbitrum-supply-caps-increase-20230530:; forge script src/ArbitrumLSTsSupplyCapsIncrease_20230530.s.sol:ArbitrumLSTsSupplyCapsIncrease_20230530 --rpc-url arbitrum --sig "run(bool)" false -vv
+safe-arbitrum-supply-caps-increase-20230530:; forge script src/ArbitrumLSTsSupplyCapsIncrease_20230530.s.sol:ArbitrumLSTsSupplyCapsIncrease_20230530 --rpc-url arbitrum --sig "run(bool)" true -vv
+
+# Increase Supply Caps for LSTs on AAVE V3 Optimism 20230530
+optimism-supply-caps-increase-20230530:; forge script src/OptimismLSTsSupplyCapsIncrease_20230530.s.sol:OptimismLSTsSupplyCapsIncrease_20230530 --rpc-url optimism --sig "run(bool)" false -vv
+safe-optimism-supply-caps-increase-20230530:; forge script src/OptimismLSTsSupplyCapsIncrease_20230530.s.sol:OptimismLSTsSupplyCapsIncrease_20230530 --rpc-url optimism --sig "run(bool)" true -vv
+
+# Increase Supply Caps for LSTs on AAVE V3 Polygon 20230530
+polygon-supply-caps-increase-20230530:; forge script src/PolygonLSTsSupplyCapsIncrease_20230530.s.sol:PolygonLSTsSupplyCapsIncrease_20230530 --rpc-url polygon --sig "run(bool)" false -vv
+safe-polygon-supply-caps-increase-20230530:; forge script src/PolygonLSTsSupplyCapsIncrease_20230530.s.sol:PolygonLSTsSupplyCapsIncrease_20230530 --rpc-url polygon --sig "run(bool)" true -vv
