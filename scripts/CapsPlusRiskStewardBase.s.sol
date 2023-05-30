@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import 'forge-std/Test.sol';
 import {Script} from 'forge-std/Script.sol';
 import {AaveGovernanceV2} from 'aave-address-book/AaveGovernanceV2.sol';
-import {AaveV3Ethereum, AaveV3EthereumAssets} from 'aave-address-book/AaveV3Ethereum.sol';
+import {IPool} from 'aave-address-book/AaveV3.sol';
 import {CapsPlusRiskSteward} from 'aave-helpers/riskstewards/CapsPlusRiskSteward.sol';
 import {IAaveV3ConfigEngine} from 'aave-helpers/v3-config-engine/IAaveV3ConfigEngine.sol';
 import {EngineFlags} from 'aave-helpers/v3-config-engine/EngineFlags.sol';
@@ -12,9 +12,11 @@ import {ProtocolV3_0_1TestBase, ReserveConfig} from 'aave-helpers/ProtocolV3Test
 
 abstract contract CapsPlusRiskStewardBase is ProtocolV3_0_1TestBase {
   error FailedUpdate();
+  IPool immutable POOL;
   CapsPlusRiskSteward immutable STEWARD;
 
-  constructor(address steward) {
+  constructor(IPool pool, address steward) {
+    POOL = pool;
     STEWARD = CapsPlusRiskSteward(steward);
   }
 
@@ -48,7 +50,7 @@ abstract contract CapsPlusRiskStewardBase is ProtocolV3_0_1TestBase {
   ) internal returns (bytes memory) {
     string memory pre = string(abi.encodePacked('pre_', name()));
     string memory post = string(abi.encodePacked('post_', name()));
-    createConfigurationSnapshot(pre, AaveV3Ethereum.POOL);
+    createConfigurationSnapshot(pre, POOL, true, false, false, false);
     bytes memory callDatas = abi.encodeWithSelector(
       CapsPlusRiskSteward.updateCaps.selector,
       capUpdates
@@ -57,7 +59,7 @@ abstract contract CapsPlusRiskStewardBase is ProtocolV3_0_1TestBase {
     bytes memory resultData;
     (success, resultData) = address(STEWARD).call(callDatas);
     _verifyCallResult(success, resultData);
-    createConfigurationSnapshot(post, AaveV3Ethereum.POOL);
+    createConfigurationSnapshot(post, POOL, true, false, false, false);
     diffReports(pre, post);
 
     return callDatas;

@@ -6,5 +6,7 @@ import {AaveV3Ethereum} from 'aave-address-book/AaveV3Ethereum.sol';
 import {CapsPlusRiskStewardBase} from './CapsPlusRiskStewardBase.s.sol';
 
 abstract contract CapsPlusRiskStewardMainnet is CapsPlusRiskStewardBase {
-  constructor() CapsPlusRiskStewardBase(AaveV3Ethereum.CAPS_PLUS_RISK_STEWARD) {}
+  constructor()
+    CapsPlusRiskStewardBase(AaveV3Ethereum.POOL, AaveV3Ethereum.CAPS_PLUS_RISK_STEWARD)
+  {}
 }

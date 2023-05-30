@@ -21,11 +21,11 @@
     "prettier-plugin-solidity": "1.1.3"
   },
   "dependencies": {
-    "@bgd-labs/report-engine": "^0.0.8",
+    "@bgd-labs/report-engine": "^0.0.11",
     "@ethersproject/hardware-wallets": "^5.7.0",
-    "@safe-global/safe-core-sdk": "^3.3.2",
-    "@safe-global/safe-ethers-lib": "^1.9.2",
-    "@safe-global/safe-service-client": "^2.0.0",
+    "@safe-global/safe-core-sdk": "^3.3.3",
+    "@safe-global/safe-ethers-lib": "^1.9.3",
+    "@safe-global/safe-service-client": "^2.0.1",
     "dotenv": "^16.0.3",
     "ethers": "5.7.2",
     "ts-node": "^10.9.1",
