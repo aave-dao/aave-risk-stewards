@@ -27,7 +27,7 @@
       "stableBorrowRateEnabled": false,
       "stableDebtToken": "0x173e54325AE58B072985DbF232436961981EA000",
       "stableDebtTokenImpl": "0x50ddd0Cd4266299527d25De9CBb55fE0EB8dAc30",
-      "supplyCap": 2400,
+      "supplyCap": 4800,
       "symbol": "wstETH",
       "underlying": "0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD",
       "usageAsCollateralEnabled": true,

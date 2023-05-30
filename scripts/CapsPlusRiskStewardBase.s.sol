@@ -50,7 +50,7 @@ abstract contract CapsPlusRiskStewardBase is ProtocolV3_0_1TestBase {
   ) internal returns (bytes memory) {
     string memory pre = string(abi.encodePacked('pre_', name()));
     string memory post = string(abi.encodePacked('post_', name()));
-    createConfigurationSnapshot(pre, POOL);
+    createConfigurationSnapshot(pre, POOL, true, false, false, false);
     bytes memory callDatas = abi.encodeWithSelector(
       CapsPlusRiskSteward.updateCaps.selector,
       capUpdates
@@ -59,7 +59,7 @@ abstract contract CapsPlusRiskStewardBase is ProtocolV3_0_1TestBase {
     bytes memory resultData;
     (success, resultData) = address(STEWARD).call(callDatas);
     _verifyCallResult(success, resultData);
-    createConfigurationSnapshot(post, POOL);
+    createConfigurationSnapshot(post, POOL, true, false, false, false);
     diffReports(pre, post);
 
     return callDatas;
