@@ -11,24 +11,38 @@ import {CapsPlusRiskStewardPolygon} from '../scripts/CapsPlusRiskStewardPolygon.
  * @author @ChaosLabsInc
  * - Discussion: https://governance.aave.com/t/arfc-increase-supply-caps-for-lsts-on-aave-v3/13240
  */
-contract PolygonLSTsSupplyCapsIncrease_20230530 is CapsPlusRiskStewardPolygon {
+contract PolygonSupplyCapsIncrease_20230602 is CapsPlusRiskStewardPolygon {
   /**
    * @return string name identifier used for the diff
    */
   function name() internal pure override returns (string memory) {
-    return 'polygon_LSTs_supply_caps_increase_20230530';
+    return 'polygon_supply_caps_increase_20230602';
   }
 
   /**
    * @return IAaveV3ConfigEngine.CapsUpdate[] capUpdates to be performed
    */
   function capsUpdates() internal pure override returns (IAaveV3ConfigEngine.CapsUpdate[] memory) {
-    IAaveV3ConfigEngine.CapsUpdate[] memory capUpdates = new IAaveV3ConfigEngine.CapsUpdate[](1);
+    IAaveV3ConfigEngine.CapsUpdate[] memory capUpdates = new IAaveV3ConfigEngine.CapsUpdate[](3);
     
     // wstETH
     capUpdates[0] = IAaveV3ConfigEngine.CapsUpdate(
       AaveV3PolygonAssets.wstETH_UNDERLYING,
-      4_050,
+      2_700,
+      EngineFlags.KEEP_CURRENT
+    );
+
+    // WMATIC
+    capUpdates[1] = IAaveV3ConfigEngine.CapsUpdate(
+      AaveV3PolygonAssets.WMATIC_UNDERLYING,
+      105_000_000,
+      67_000_000
+    );
+
+    // stMATIC
+    capUpdates[2] = IAaveV3ConfigEngine.CapsUpdate(
+      AaveV3PolygonAssets.stMATIC_UNDERLYING,
+      32_000_000,
       EngineFlags.KEEP_CURRENT
     );
 
