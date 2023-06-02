@@ -7,16 +7,16 @@ import {EngineFlags} from 'aave-helpers/v3-config-engine/EngineFlags.sol';
 import {CapsPlusRiskStewardPolygon} from '../scripts/CapsPlusRiskStewardPolygon.s.sol';
 
 /**
- * @title Update Supply Caps for wstETH on Polygon V3
+ * @title Increase Caps on Polygon V3
  * @author @ChaosLabsInc
- * - Discussion: https://governance.aave.com/t/arfc-increase-supply-caps-for-lsts-on-aave-v3/13240
+ * - Discussion: https://governance.aave.com/t/arfc-wmatic-supply-borrow-cap-increase-polygon-v3/13418/2
  */
-contract PolygonSupplyCapsIncrease_20230602 is CapsPlusRiskStewardPolygon {
+contract PolygonCapsIncrease_20230602 is CapsPlusRiskStewardPolygon {
   /**
    * @return string name identifier used for the diff
    */
   function name() internal pure override returns (string memory) {
-    return 'polygon_supply_caps_increase_20230602';
+    return 'polygon_caps_increase_20230602';
   }
 
   /**

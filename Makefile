@@ -44,5 +44,5 @@ optimism-supply-caps-increase-20230530:; forge script src/OptimismLSTsSupplyCaps
 safe-optimism-supply-caps-increase-20230530:; forge script src/OptimismLSTsSupplyCapsIncrease_20230530.s.sol:OptimismLSTsSupplyCapsIncrease_20230530 --rpc-url optimism --sig "run(bool)" true -vv
 
 # Increase Supply Caps AAVE V3 Polygon 20230602
-polygon-supply-caps-increase-20230602:; forge script src/PolygonSupplyCapsIncrease_20230602.s.sol:PolygonSupplyCapsIncrease_20230602 --rpc-url polygon --sig "run(bool)" false -vv
-safe-polygon-supply-caps-increase-20230602:; forge script src/PolygonSupplyCapsIncrease_20230602.s.sol:PolygonSupplyCapsIncrease_20230602 --rpc-url polygon --sig "run(bool)" true -vv
+polygon-caps-increase-20230602:; forge script src/PolygonCapsIncrease_20230602.s.sol:PolygonCapsIncrease_20230602 --rpc-url polygon --sig "run(bool)" false -vv
+safe-polygon-caps-increase-20230602:; forge script src/PolygonCapsIncrease_20230602.s.sol:PolygonCapsIncrease_20230602 --rpc-url polygon --sig "run(bool)" true -vv
