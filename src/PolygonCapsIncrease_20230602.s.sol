@@ -23,7 +23,7 @@ contract PolygonCapsIncrease_20230602 is CapsPlusRiskStewardPolygon {
    * @return IAaveV3ConfigEngine.CapsUpdate[] capUpdates to be performed
    */
   function capsUpdates() internal pure override returns (IAaveV3ConfigEngine.CapsUpdate[] memory) {
-    IAaveV3ConfigEngine.CapsUpdate[] memory capUpdates = new IAaveV3ConfigEngine.CapsUpdate[](3);
+    IAaveV3ConfigEngine.CapsUpdate[] memory capUpdates = new IAaveV3ConfigEngine.CapsUpdate[](2);
     
     // wstETH
     capUpdates[0] = IAaveV3ConfigEngine.CapsUpdate(
@@ -32,15 +32,8 @@ contract PolygonCapsIncrease_20230602 is CapsPlusRiskStewardPolygon {
       EngineFlags.KEEP_CURRENT
     );
 
-    // WMATIC
-    capUpdates[1] = IAaveV3ConfigEngine.CapsUpdate(
-      AaveV3PolygonAssets.WMATIC_UNDERLYING,
-      105_000_000,
-      67_000_000
-    );
-
     // stMATIC
-    capUpdates[2] = IAaveV3ConfigEngine.CapsUpdate(
+    capUpdates[1] = IAaveV3ConfigEngine.CapsUpdate(
       AaveV3PolygonAssets.stMATIC_UNDERLYING,
       32_000_000,
       EngineFlags.KEEP_CURRENT
