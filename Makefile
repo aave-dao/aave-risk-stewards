@@ -50,3 +50,7 @@ safe-polygon-caps-increase-20230602:; forge script src/PolygonCapsIncrease_20230
 # Increase Supply Caps AAVE V3 Polygon 20230607
 polygon-caps-increase-20230607:; forge script src/PolygonCapsIncrease_20230607.s.sol:PolygonCapsIncrease_20230607 --rpc-url polygon --sig "run(bool)" false -vv
 safe-polygon-caps-increase-20230607:; forge script src/PolygonCapsIncrease_20230607.s.sol:PolygonCapsIncrease_20230607 --rpc-url polygon --sig "run(bool)" true -vv
+
+# Increase Caps AAVE V3 Arbitrum 20230608
+arbitrum-caps-increase-20230608:; forge script src/ArbitrumCapsIncrease_20230608.s.sol:ArbitrumCapsIncrease_20230608 --rpc-url arbitrum --sig "run(bool)" false -vv
+safe-arbitrum-caps-increase-20230608:; forge script src/ArbitrumCapsIncrease_20230608.s.sol:ArbitrumCapsIncrease_20230608 --rpc-url arbitrum --sig "run(bool)" true -vv
