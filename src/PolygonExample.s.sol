@@ -20,8 +20,8 @@ contract PolygonExample is CapsPlusRiskStewardPolygon {
   function capsUpdates() internal pure override returns (IAaveV3ConfigEngine.CapsUpdate[] memory) {
     IAaveV3ConfigEngine.CapsUpdate[] memory capUpdates = new IAaveV3ConfigEngine.CapsUpdate[](1);
     capUpdates[0] = IAaveV3ConfigEngine.CapsUpdate(
-      AaveV3PolygonAssets.wstETH_UNDERLYING,
-      4_800,
+      AaveV3PolygonAssets.CRV_UNDERLYING,
+      1_300_000,
       EngineFlags.KEEP_CURRENT
     );
     return capUpdates;
