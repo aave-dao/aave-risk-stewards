@@ -2,11 +2,11 @@
 
 ### Reserves altered
 
-#### wstETH ([0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD](https://polygonscan.com/address/0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD))
+#### CRV ([0x172370d5Cd63279eFa6d502DAB29171933a610AF](https://polygonscan.com/address/0x172370d5Cd63279eFa6d502DAB29171933a610AF))
 
 | description | value before | value after |
 | --- | --- | --- |
-| supplyCap | 2,400 wstETH | 4,800 wstETH |
+| supplyCap | 1,125,240 CRV | 1,300,000 CRV |
 
 
 ## Raw diff
@@ -14,10 +14,10 @@
 ```json
 {
   "reserves": {
-    "0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD": {
+    "0x172370d5Cd63279eFa6d502DAB29171933a610AF": {
       "supplyCap": {
-        "from": 2400,
-        "to": 4800
+        "from": 1125240,
+        "to": 1300000
       }
     }
   }
