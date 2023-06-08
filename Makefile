@@ -54,3 +54,7 @@ safe-polygon-caps-increase-20230607:; forge script src/PolygonCapsIncrease_20230
 # Increase Caps AAVE V3 Arbitrum 20230608
 arbitrum-caps-increase-20230608:; forge script src/ArbitrumCapsIncrease_20230608.s.sol:ArbitrumCapsIncrease_20230608 --rpc-url arbitrum --sig "run(bool)" false -vv
 safe-arbitrum-caps-increase-20230608:; forge script src/ArbitrumCapsIncrease_20230608.s.sol:ArbitrumCapsIncrease_20230608 --rpc-url arbitrum --sig "run(bool)" true -vv
+
+# Increase Caps AAVE V3 Arbitrum 20230608
+avalanche-caps-increase-20230608:; forge script src/AvalancheSupplyCapsIncrease_20230608.s.sol:AvalancheSupplyCapsIncrease_20230608 --rpc-url avalanche --sig "run(bool)" false -vv
+safe-avalanche-caps-increase-20230608:; forge script src/AvalancheSupplyCapsIncrease_20230608.s.sol:AvalancheSupplyCapsIncrease_20230608 --rpc-url avalanche --sig "run(bool)" true -vv
