@@ -9,12 +9,6 @@ import {generatePayloadFile} from './payload.js';
 
 const $$ = $({stdio: 'inherit', verbose: true});
 
-function createFolder(folderPath: string): void {
-  if (!fs.existsSync(folderPath)) {
-    fs.mkdirSync(folderPath);
-  }
-}
-
 export const KEEP_CURRENT = 'KEEP_CURRENT' as const;
 
 export type EngineValue<T> = T | typeof KEEP_CURRENT;
@@ -50,7 +44,9 @@ export const foundryNetworkNamePerNetwork: Record<Networks, string> = {
 };
 
 export interface NetworkUpdate {
-  forkBlockNumber: number;
+  title: string;
+  author: string;
+  forumPost: string;
   capsUpdates?: CapsUpdate[];
 }
 
@@ -90,7 +86,8 @@ function generateFollowupCommands(updateDate: string, updates: AllUpdates) {
 
   for (const network of networks) {
     commands.push(
-      `To Test ${network} Payload:\n  yarn ts-node generator/index.ts simulate --ud ${updateDate} --network ${network}`
+      `To Test ${network} Payload:\n  yarn ts-node generator/index.ts simulate --ud ${updateDate} --network ${network}`,
+      `To Submit ${network} Payload:\n  yarn ts-node generator/index.ts simulate --ud ${updateDate} --network ${network} --submit=true`
     );
   }
 

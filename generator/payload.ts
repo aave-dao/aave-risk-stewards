@@ -16,7 +16,12 @@ import {CapsPlusRiskSteward${network}} from '../scripts/CapsPlusRiskSteward${net
 ${Object.keys(updates)
   .map((network) => {
     const update = updates[network as Networks] as NetworkUpdate;
-    return `contract ${network}CapsUpdate_${updateDate} is CapsPlusRiskSteward${network} {
+    return `/**
+  * @title ${update.title}
+  * @author ${update.author}
+  * - Discussion: ${update.forumPost}
+ */
+contract ${network}CapsUpdate_${updateDate} is CapsPlusRiskSteward${network} {
 ${[
   `  function name() internal pure override returns (string memory) {
     return '${network}_caps_${updateDate}';
