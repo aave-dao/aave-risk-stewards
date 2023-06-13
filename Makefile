@@ -56,5 +56,9 @@ arbitrum-caps-increase-20230608:; forge script src/ArbitrumCapsIncrease_20230608
 safe-arbitrum-caps-increase-20230608:; forge script src/ArbitrumCapsIncrease_20230608.s.sol:ArbitrumCapsIncrease_20230608 --rpc-url arbitrum --sig "run(bool)" true -vv
 
 # Increase Caps AAVE V3 Arbitrum 20230608
+arbitrum-weth-borrow-cap-increase-20230608:; forge script src/ArbitrumWETHBorrowCapIncrease_20230608.s.sol:ArbitrumWETHBorrowCapIncrease_20230608 --rpc-url arbitrum --sig "run(bool)" false
+safe-arbitrum-weth-borrow-cap-increase-20230608:; forge script src/ArbitrumWETHBorrowCapIncrease_20230608.s.sol:ArbitrumWETHBorrowCapIncrease_20230608 --rpc-url arbitrum --sig "run(bool)" true -vv
+
+# Increase Caps AAVE V3 Arbitrum 20230608
 avalanche-caps-increase-20230608:; forge script src/AvalancheSupplyCapsIncrease_20230608.s.sol:AvalancheSupplyCapsIncrease_20230608 --rpc-url avalanche --sig "run(bool)" false -vv
 safe-avalanche-caps-increase-20230608:; forge script src/AvalancheSupplyCapsIncrease_20230608.s.sol:AvalancheSupplyCapsIncrease_20230608 --rpc-url avalanche --sig "run(bool)" true -vv
