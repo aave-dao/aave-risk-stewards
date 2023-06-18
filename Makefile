@@ -62,3 +62,7 @@ safe-arbitrum-weth-borrow-cap-increase-20230608:; forge script src/ArbitrumWETHB
 # Increase Caps AAVE V3 Arbitrum 20230608
 avalanche-caps-increase-20230608:; forge script src/AvalancheSupplyCapsIncrease_20230608.s.sol:AvalancheSupplyCapsIncrease_20230608 --rpc-url avalanche --sig "run(bool)" false -vv
 safe-avalanche-caps-increase-20230608:; forge script src/AvalancheSupplyCapsIncrease_20230608.s.sol:AvalancheSupplyCapsIncrease_20230608 --rpc-url avalanche --sig "run(bool)" true -vv
+
+# Increase Supply Caps for wstETH on AAVE V3 Ethereum 20230530
+mainnet-supply-caps-increase-20230618:; forge script src/MainnetwstETHSupplyCapsIncrease_20230618.s.sol --rpc-url mainnet --sig "run(bool)" false -vv
+safe-mainnet-supply-caps-increase-20230618:; forge script src/MainnetwstETHSupplyCapsIncrease_20230618.s.sol:MainnetwstETHSupplyCapsIncrease_20230618 --rpc-url mainnet --sig "run(bool)" true -vv
