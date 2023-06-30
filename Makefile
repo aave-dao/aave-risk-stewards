@@ -62,3 +62,7 @@ safe-arbitrum-weth-borrow-cap-increase-20230608:; forge script src/ArbitrumWETHB
 # Increase Caps AAVE V3 Arbitrum 20230608
 avalanche-caps-increase-20230608:; forge script src/AvalancheSupplyCapsIncrease_20230608.s.sol:AvalancheSupplyCapsIncrease_20230608 --rpc-url avalanche --sig "run(bool)" false -vv
 safe-avalanche-caps-increase-20230608:; forge script src/AvalancheSupplyCapsIncrease_20230608.s.sol:AvalancheSupplyCapsIncrease_20230608 --rpc-url avalanche --sig "run(bool)" true -vv
+
+# Increase Caps AAVE V3 Metis 20230629
+metis-caps-increase-20230629:; forge script src/MetisCapsIncrease_20230629.s.sol:MetisCapsIncrease20230629 --rpc-url metis --sig "run(bool)" false
+safe-metis-caps-increase-20230629:; forge script src/MetisCapsIncrease_20230629.s.sol:MetisCapsIncrease20230629 --rpc-url metis --sig "run(bool)" true -vv
