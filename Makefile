@@ -70,6 +70,7 @@ safe-metis-caps-increase-20230629:; forge script src/MetisCapsIncrease_20230629.
 # Increase Caps AAVE V3 Arbitrum 20230630
 arbitrum-caps-increase-20230630:; forge script src/ArbitrumCapsIncrease_20230630.s.sol:ArbitrumCapsIncrease_20230630 --rpc-url arbitrum --sig "run(bool)" false
 safe-arbitrum-caps-increase-20230630:; forge script src/ArbitrumCapsIncrease_20230630.s.sol:ArbitrumCapsIncrease_20230630 --rpc-url arbitrum --sig "run(bool)" true -vv
+
 # Increase Supply Caps for wstETH on AAVE V3 Ethereum 20230618
-mainnet-supply-caps-increase-20230618:; forge script src/MainnetwstETHSupplyCapsIncrease_20230618.s.sol --rpc-url mainnet --sig "run(bool)" false -vv
+mainnet-supply-caps-increase-20230618:; forge script src/MainnetwstETHSupplyCapsIncrease_20230618.s.sol:MainnetwstETHSupplyCapsIncrease_20230618 --rpc-url mainnet --sig "run(bool)" false -vv
 safe-mainnet-supply-caps-increase-20230618:; forge script src/MainnetwstETHSupplyCapsIncrease_20230618.s.sol:MainnetwstETHSupplyCapsIncrease_20230618 --rpc-url mainnet --sig "run(bool)" true -vv
