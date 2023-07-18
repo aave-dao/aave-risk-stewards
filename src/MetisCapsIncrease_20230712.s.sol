@@ -19,7 +19,11 @@ contract MetisCapsIncrease20230712 is CapsPlusRiskStewardMetis {
    */
   function capsUpdates() internal pure override returns (IAaveV3ConfigEngine.CapsUpdate[] memory) {
     IAaveV3ConfigEngine.CapsUpdate[] memory capUpdates = new IAaveV3ConfigEngine.CapsUpdate[](2);
-    capUpdates[0] = IAaveV3ConfigEngine.CapsUpdate(AaveV3MetisAssets.WETH_UNDERLYING, 200, 120);
+    capUpdates[0] = IAaveV3ConfigEngine.CapsUpdate(
+      AaveV3MetisAssets.WETH_UNDERLYING,
+      200,
+      EngineFlags.KEEP_CURRENT
+    );
     capUpdates[1] = IAaveV3ConfigEngine.CapsUpdate(
       AaveV3MetisAssets.Metis_UNDERLYING,
       30_000,
