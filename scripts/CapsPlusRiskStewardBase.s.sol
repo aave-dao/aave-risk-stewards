@@ -8,9 +8,9 @@ import {IPool} from 'aave-address-book/AaveV3.sol';
 import {CapsPlusRiskSteward} from 'aave-helpers/riskstewards/CapsPlusRiskSteward.sol';
 import {IAaveV3ConfigEngine} from 'aave-helpers/v3-config-engine/IAaveV3ConfigEngine.sol';
 import {EngineFlags} from 'aave-helpers/v3-config-engine/EngineFlags.sol';
-import {ProtocolV3_0_1TestBase, ReserveConfig} from 'aave-helpers/ProtocolV3TestBase.sol';
+import {ProtocolV3TestBase, ReserveConfig} from 'aave-helpers/ProtocolV3TestBase.sol';
 
-abstract contract CapsPlusRiskStewardBase is ProtocolV3_0_1TestBase {
+abstract contract CapsPlusRiskStewardBase is ProtocolV3TestBase {
   error FailedUpdate();
   IPool immutable POOL;
   CapsPlusRiskSteward immutable STEWARD;
