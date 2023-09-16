@@ -15,6 +15,11 @@ git-diff :
 	@mkdir -p diffs
 	@printf '%s\n%s\n%s\n' "\`\`\`diff" "$$(git diff --no-index --diff-algorithm=patience --ignore-space-at-eol ${before} ${after})" "\`\`\`" > diffs/${out}.md
 
+mainnet-contract:; forge script ${contract_path} --rpc-url mainnet --sig "run(bool)" false -vv
+optimism-contract:; forge script ${contract_path} --rpc-url optimism --sig "run(bool)" false -vv
+arbitrum-contract:; forge script ${contract_path} --rpc-url arbitrum --sig "run(bool)" false -vv
+metis-contract:; forge script ${contract_path} --rpc-url metis --sig "run(bool)" false -vv
+
 # only emit
 mainnet-example:; forge script src/MainnetExample.s.sol:MainnetExample --rpc-url mainnet --sig "run(bool)" false -vv
 polygon-example:; forge script src/PolygonExample.s.sol:PolygonExample --rpc-url polygon --sig "run(bool)" false -vv
