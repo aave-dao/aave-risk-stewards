@@ -1,6 +1,10 @@
 import {AllUpdates, valueOrKeepCurrent, Networks, NetworkUpdate} from './index.js';
 
 export function generatePayloadFile(updateDate: string, updates: AllUpdates): string {
+  const adjustNetwork = (network: string) => {
+    return network === 'Ethereum' ? 'Mainnet' : network;
+  };
+
   const payloadFile = `// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -9,7 +13,9 @@ import {EngineFlags} from 'aave-helpers/v3-config-engine/EngineFlags.sol';
 ${Object.keys(updates)
   .map((network) => {
     return `import {AaveV3${network}Assets} from 'aave-address-book/AaveV3${network}.sol';
-import {CapsPlusRiskSteward${network}} from '../scripts/CapsPlusRiskSteward${network}.s.sol';`;
+import {CapsPlusRiskSteward${adjustNetwork(
+      network
+    )}} from '../scripts/CapsPlusRiskSteward${adjustNetwork(network)}.s.sol';`;
   })
   .join('\n')}
 
@@ -21,7 +27,7 @@ ${Object.keys(updates)
   * @author ${update.author}
   * - Discussion: ${update.forumPost}
  */
-contract ${network}CapsUpdate_${updateDate} is CapsPlusRiskSteward${network} {
+contract ${network}CapsUpdate_${updateDate} is CapsPlusRiskSteward${adjustNetwork(network)} {
 ${[
   `  function name() internal pure override returns (string memory) {
     return '${network}_caps_${updateDate}';
