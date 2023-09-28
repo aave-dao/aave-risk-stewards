@@ -23,6 +23,10 @@ optimism-example:; forge script src/OptimismExample.s.sol:OptimismExample --rpc-
 arbitrum-example:; forge script src/ArbitrumExample.s.sol:ArbitrumExample --rpc-url arbitrum --sig "run(bool)" false -vv
 avalanche-example:; forge script src/AvalancheExample.s.sol:AvalancheExample --rpc-url avalanche --sig "run(bool)" false -vv
 
+mainnet-contract:; forge script ${contract_path} --rpc-url mainnet --sig "run(bool)" false -vv
+arbitrum-contract:; forge script ${contract_path} --rpc-url arbitrum --sig "run(bool)" false -vv
+base-contract:; forge script ${contract_path} --rpc-url base --sig "run(bool)" false -vv
+
 # Broadcast to safe backend
 safe-mainnet-example:; forge script src/MainnetExample.s.sol:MainnetExample --rpc-url mainnet --sig "run(bool)" true -vv
 safe-polygon-example:; forge script src/PolygonExample.s.sol:PolygonExample --rpc-url polygon --sig "run(bool)" true -vv
