@@ -16,7 +16,7 @@ contract MetisCapsIncrease_20231005 is CapsPlusRiskStewardMetis {
     * @return string name identifier used for the diff
     */
     function name() internal pure override returns (string memory) {
-        return 'metis_caps_increase_20230916';
+        return 'metis_caps_increase_20231005';
     }
 
     /**
