@@ -27,7 +27,7 @@ contract ArbitrumCapsIncrease_20231005 is CapsPlusRiskStewardArbitrum {
 
     capUpdates[0] = IAaveV3ConfigEngine.CapsUpdate(
       AaveV3ArbitrumAssets.rETH_UNDERLYING,
-      2_600,
+      3_400,
       EngineFlags.KEEP_CURRENT
     );
 

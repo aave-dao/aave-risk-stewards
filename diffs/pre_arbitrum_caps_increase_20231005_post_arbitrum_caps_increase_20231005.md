@@ -6,7 +6,7 @@
 
 | description | value before | value after |
 | --- | --- | --- |
-| supplyCap | 1,700 rETH | 2,600 rETH |
+| supplyCap | 1,700 rETH | 3,400 rETH |
 
 
 #### LINK ([0xf97f4df75117a78c1A5a0DBb814Af92458539FB4](https://arbiscan.io/address/0xf97f4df75117a78c1A5a0DBb814Af92458539FB4))
@@ -24,7 +24,7 @@
     "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": {
       "supplyCap": {
         "from": 1700,
-        "to": 2600
+        "to": 3400
       }
     },
     "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4": {
