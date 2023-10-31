@@ -109,7 +109,7 @@ async function main() {
           })
           .option('updateFile', {
             alias: 'uf',
-            describe: 'Path to the typescript update file which exports an AllUpdates value',
+            describe: 'Path to the typescript update file which exports an AllUpdates value OR a direct JSON string.',
             type: 'string',
             demandOption: true,
           })
@@ -122,9 +122,23 @@ async function main() {
       },
       async (argv) => {
         const updateDate = argv.updateDate as string;
-        const updateFile = argv.updateFile as string;
+        const updateInput = argv.updateFile as string;
+        let updates: AllUpdates;
 
-        const updates: AllUpdates = (await import(path.join('..', updateFile))).default;
+        try {
+          // Try parsing as JSON first
+          updates = JSON.parse(updateInput);
+        } catch (e) {
+          // If it's not valid JSON, consider it a file path
+          const updateFilePath = path.join('..', updateInput);
+          const updateFileExt = path.extname(updateFilePath);
+
+          if (updateFileExt === '.js' || updateFileExt === '.ts') {
+            updates = (await import(updateFilePath)).default;
+          } else {
+            throw new Error('Unsupported file type. Please provide a valid JSON string, .js, or .ts file.');
+          }
+        }
 
         const files = generateAaveV3UpdateFiles(updateDate, updates);
         const commands = generateFollowupCommands(updateDate, updates);
