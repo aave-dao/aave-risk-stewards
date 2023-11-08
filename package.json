@@ -23,7 +23,7 @@
     "@types/node": "^16.0.0"
   },
   "dependencies": {
-    "@bgd-labs/aave-cli": "^0.0.12",
+    "@bgd-labs/aave-cli": "^0.1.0",
     "@ethersproject/hardware-wallets": "^5.7.0",
     "@safe-global/safe-core-sdk": "^3.3.3",
     "@safe-global/safe-ethers-lib": "^1.9.3",
