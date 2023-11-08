@@ -2,7 +2,13 @@ import {AllUpdates, valueOrKeepCurrent, Networks, NetworkUpdate} from './index.j
 
 export function generatePayloadFile(updateDate: string, updates: AllUpdates): string {
   const adjustNetwork = (network: string) => {
-    return network === 'Ethereum' ? 'Mainnet' : network;
+    if (network === 'Ethereum') {
+      return 'Mainnet';
+    } else if (network === 'Base') {
+      return 'BaseChain';
+    } else {
+      return network;
+    }
   };
 
   const payloadFile = `// SPDX-License-Identifier: MIT
