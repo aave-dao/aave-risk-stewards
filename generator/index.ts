@@ -23,7 +23,14 @@ export type CapsUpdate = EngineUpdate<{
   borrowCap: BigInt;
 }>;
 
-export type Networks = 'Ethereum' | 'Polygon' | 'Arbitrum' | 'Optimism' | 'Avalanche' | 'Metis';
+export type Networks =
+  | 'Ethereum'
+  | 'Polygon'
+  | 'Arbitrum'
+  | 'Optimism'
+  | 'Avalanche'
+  | 'Metis'
+  | 'Base';
 
 export const govHelperNetworkNames: Record<Networks, string> = {
   Ethereum: 'Mainnet',
@@ -32,6 +39,7 @@ export const govHelperNetworkNames: Record<Networks, string> = {
   Optimism: 'Optimism',
   Avalanche: 'Avalanche',
   Metis: 'Metis',
+  Base: 'BaseChain',
 };
 
 export const foundryNetworkNamePerNetwork: Record<Networks, string> = {
@@ -41,6 +49,7 @@ export const foundryNetworkNamePerNetwork: Record<Networks, string> = {
   Optimism: 'optimism',
   Avalanche: 'avalanche',
   Metis: 'metis',
+  Base: 'base',
 };
 
 export interface NetworkUpdate {
@@ -109,7 +118,8 @@ async function main() {
           })
           .option('updateFile', {
             alias: 'uf',
-            describe: 'Path to the typescript update file which exports an AllUpdates value OR a direct JSON string.',
+            describe:
+              'Path to the typescript update file which exports an AllUpdates value OR a direct JSON string.',
             type: 'string',
             demandOption: true,
           })
@@ -136,7 +146,9 @@ async function main() {
           if (updateFileExt === '.js' || updateFileExt === '.ts') {
             updates = (await import(updateFilePath)).default;
           } else {
-            throw new Error('Unsupported file type. Please provide a valid JSON string, .js, or .ts file.');
+            throw new Error(
+              'Unsupported file type. Please provide a valid JSON string, .js, or .ts file.'
+            );
           }
         }
 
