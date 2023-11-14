@@ -33,8 +33,8 @@ contract GnosisCapsIncrease_20231112 is CapsPlusRiskStewardGnosis {
 
     capUpdates[1] = IAaveV3ConfigEngine.CapsUpdate(
       AaveV3GnosisAssets.WXDAI_UNDERLYING,
-      3_000_000,
-      2_700_000
+      2_300_000,
+      2_300_000
     );
 
     capUpdates[2] = IAaveV3ConfigEngine.CapsUpdate(
@@ -45,14 +45,14 @@ contract GnosisCapsIncrease_20231112 is CapsPlusRiskStewardGnosis {
 
     capUpdates[3] = IAaveV3ConfigEngine.CapsUpdate(
       AaveV3GnosisAssets.USDC_UNDERLYING,
-      2_000_000,
-      1_800_000
+      1_500_000,
+      1_500_000
     );
 
     capUpdates[4] = IAaveV3ConfigEngine.CapsUpdate(
       AaveV3GnosisAssets.EURe_UNDERLYING,
-      1_000_000,
-      900_000
+      750_000,
+      750_000
     );
 
     return capUpdates;
