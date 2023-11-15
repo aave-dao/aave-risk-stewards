@@ -2,6 +2,7 @@
 pragma solidity ^0.8.0;
 
 import {AaveV3Polygon} from 'aave-address-book/AaveV3Polygon.sol';
+import {AaveV3Base} from 'aave-address-book/AaveV3Base.sol';
 import {AaveV3Arbitrum} from 'aave-address-book/AaveV3Arbitrum.sol';
 import {AaveV3Optimism} from 'aave-address-book/AaveV3Optimism.sol';
 import {AaveV3Ethereum} from 'aave-address-book/AaveV3Ethereum.sol';
@@ -15,6 +16,11 @@ contract GenerateSnapshots is ProtocolV3TestBase {
   function test_generatePolygonSnapshot() public {
     vm.createSelectFork(vm.rpcUrl('polygon'));
     createConfigurationSnapshot('polygon_snapshot', AaveV3Polygon.POOL);
+  }
+
+  function test_generateBaseSnapshot() public {
+    vm.createSelectFork(vm.rpcUrl('base'));
+    createConfigurationSnapshot('base_snapshot', AaveV3Base.POOL);
   }
 
   function test_generateArbitrumSnapshot() public {
