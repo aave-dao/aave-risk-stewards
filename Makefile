@@ -17,6 +17,7 @@ git-diff :
 
 mainnet-contract:; forge script ${contract_path} --rpc-url mainnet --sig "run(bool)" false -vv
 optimism-contract:; forge script ${contract_path} --rpc-url optimism --sig "run(bool)" false -vv
+polygon-contract:; forge script ${contract_path} --rpc-url polygon --sig "run(bool)" false -vv
 arbitrum-contract:; forge script ${contract_path} --rpc-url arbitrum --sig "run(bool)" false -vv
 metis-contract:; forge script ${contract_path} --rpc-url metis --sig "run(bool)" false -vv
 base-contract:; forge script ${contract_path} --rpc-url base --sig "run(bool)" false -vv
