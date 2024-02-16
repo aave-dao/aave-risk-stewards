@@ -8,7 +8,7 @@ import {CapsPlusRiskStewardScroll} from '../scripts/CapsPlusRiskStewardScroll.s.
 
 /**
  * @title Update Caps on Scroll V3
- * @author Chaos Labs
+ * @author Chaos Labs - eyalovadya
  * - Discussion: https://governance.aave.com/t/arfc-chaos-labs-risk-stewards-increase-supply-caps-on-v3-scroll-02-14-2024/16626
  */
 contract ScrollCapsIncrease_20240214 is CapsPlusRiskStewardScroll {
