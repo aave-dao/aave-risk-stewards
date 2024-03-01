@@ -9,6 +9,7 @@ import {CapsPlusRiskStewardMetis} from '../scripts/CapsPlusRiskStewardMetis.s.so
 /**
  * @title Update Caps on Metis V3
  * @author Chaos Labs - eyalovadya
+ * Discussion: https://governance.aave.com/t/arfc-chaos-labs-risk-stewards-increase-supply-cap-on-v3-metis-03-01-24/16803
  */
 contract MetisCapsIncrease_20240229 is CapsPlusRiskStewardMetis {
   /**
