@@ -9,6 +9,7 @@ import {CapsPlusRiskStewardBNB} from '../scripts/CapsPlusRiskStewardBNB.s.sol';
 /**
  * @title Update FDUSD Caps on BNB V3
  * @author Chaos Labs - eyalovadya
+ * - Discussion: https://governance.aave.com/t/arfc-chaos-labs-risk-stewards-increase-fdusd-supply-and-borrow-cap-on-v3-bnbchain-03-01-2024/16801
  */
 contract BnbFDUSDCapsIncrease_20240229 is CapsPlusRiskStewardBNB {
   /**
