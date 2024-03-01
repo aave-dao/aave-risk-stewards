@@ -9,6 +9,7 @@ import {AaveV3EthereumAssets} from 'aave-address-book/AaveV3Ethereum.sol';
 /**
  * @title Update GHO Borrow Cap on Mainnet V3
  * @author Chaos Labs - eyalovadya
+ * Discussion: https://governance.aave.com/t/arfc-chaos-labs-risk-stewards-increase-gho-minting-cap-03-01-24/16805
  */
 contract MainnetGHOBorrowCapIncrease_20240229 is CapsPlusRiskStewardMainnet {
   /**
