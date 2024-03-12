@@ -23,6 +23,7 @@ metis-contract:; forge script ${contract_path} --rpc-url metis --sig "run(bool)"
 base-contract:; forge script ${contract_path} --rpc-url base --sig "run(bool)" false -vv
 gnosis-contract:; forge script ${contract_path} --rpc-url gnosis --sig "run(bool)" false -vv
 scroll-contract:; forge script ${contract_path} --rpc-url scroll --sig "run(bool)" false -vv
+bnb-contract:; forge script ${contract_path} --rpc-url bnb --sig "run(bool)" false -vv
 
 # only emit
 mainnet-example:; forge script src/MainnetExample.s.sol:MainnetExample --rpc-url mainnet --sig "run(bool)" false -vv

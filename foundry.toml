@@ -21,6 +21,7 @@ metis = "${RPC_METIS}"
 base = "${RPC_BASE}"
 gnosis = "${RPC_GNOSIS}"
 scroll = "${RPC_SCROLL}"
+bnb = "${RPC_BNB}"
 
 [etherscan]
 mainnet = { key="${ETHERSCAN_API_KEY_MAINNET}", chainId=1 }
