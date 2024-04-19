@@ -9,7 +9,7 @@ import {CapsPlusRiskStewardMainnet} from '../scripts/CapsPlusRiskStewardMainnet.
 /**
  * @title Update Caps for weETH Ethereum V3
  * @author @ChaosLabsInc
- * - Discussion: https://governance.aave.com/t/arfc-chaos-labs-risk-stewards-increase-supply-cap-for-weeth-on-v3-ethereum-04-14-2024/17363
+ * - Discussion: https://governance.aave.com/t/arfc-chaos-labs-risk-stewards-increase-supply-and-borrow-cap-for-weeth-on-v3-ethereum-04-19-2024/17416
  */
 contract MainnetWeETHCapsIncrease_20240419 is CapsPlusRiskStewardMainnet {
   /**
