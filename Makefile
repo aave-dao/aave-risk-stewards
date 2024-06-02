@@ -15,12 +15,12 @@ git-diff :
 	@mkdir -p diffs
 	@printf '%s\n%s\n%s\n' "\`\`\`diff" "$$(git diff --no-index --diff-algorithm=patience --ignore-space-at-eol ${before} ${after})" "\`\`\`" > diffs/${out}.md
 
-mainnet-contract:; forge script ${contract_path} --rpc-url mainnet --sig "run(bool)" false -vv
-optimism-contract:; forge script ${contract_path} --rpc-url optimism --sig "run(bool)" false -vv
-polygon-contract:; forge script ${contract_path} --rpc-url polygon --sig "run(bool)" false -vv
-arbitrum-contract:; forge script ${contract_path} --rpc-url arbitrum --sig "run(bool)" false -vv
-metis-contract:; forge script ${contract_path} --rpc-url metis --sig "run(bool)" false -vv
-base-contract:; forge script ${contract_path} --rpc-url base --sig "run(bool)" false -vv
+mainnet-contract:; FOUNDRY_PROFILE=mainnet forge script ${contract_path} --rpc-url mainnet --sig "run(bool)" false -vv
+optimism-contract:; FOUNDRY_PROFILE=optimism forge script ${contract_path} --rpc-url optimism --sig "run(bool)" false -vv
+polygon-contract:; FOUNDRY_PROFILE=polygon forge script ${contract_path} --rpc-url polygon --sig "run(bool)" false -vv
+arbitrum-contract:; FOUNDRY_PROFILE=arbitrum forge script ${contract_path} --rpc-url arbitrum --sig "run(bool)" false -vv
+metis-contract:; FOUNDRY_PROFILE=metis forge script ${contract_path} --rpc-url metis --sig "run(bool)" false -vv
+base-contract:; FOUNDRY_PROFILE=base forge script ${contract_path} --rpc-url base --sig "run(bool)" false -vv
 gnosis-contract:; forge script ${contract_path} --rpc-url gnosis --sig "run(bool)" false -vv
 scroll-contract:; forge script ${contract_path} --rpc-url scroll --sig "run(bool)" false -vv
 bnb-contract:; forge script ${contract_path} --rpc-url bnb --sig "run(bool)" false -vv
